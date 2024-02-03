@@ -1,0 +1,86 @@
+body {
+  display: flex;
+  align-items: center;
+  background: #121212;
+  /* Set the background color to a dark color (e.g., dark blue) */
+  /* -webkit-animation: bgcolor 20s infinite;
+    animation: bgcolor 10s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate; */
+}
+
+body {
+  animation: 10000ms ease-in-out infinite color-change;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: teal;
+  }
+
+  20% {
+    background-color: rgb(39, 33, 4);
+  }
+
+  40% {
+    background-color: rgb(61, 3, 3);
+  }
+
+  60% {
+    background-color: rgb(52, 4, 52);
+  }
+
+  80% {
+    background-color: rgb(0, 60, 0);
+  }
+
+  100% {
+    background-color: rgb(239, 61, 61);
+  }
+}
+
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container div {
+  width: 100%;
+  font-size: xxx-large;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: 'Dancing Script', Recursive;
+}
+
+
+.button {
+  font-size: large;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+
+
+.firework {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5vmin;
+  aspect-ratio: 1;
+  background: 0
+    /* background intentionally blank */
+  ;
+  background-size: 0.5vmin 0.5vmin;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Like Me?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('heart-pattern.jpg');
+            overflow: hidden;
+            font-family: "Dancing Script", cursive;
+        }
+
+        .container {
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .container div {
+            font-size: 80px;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+        }
+
+        .button,
+        .runaway-btn {
+            font-size: 2vw;
+            height: 4rem;
+            width: 10rem;
+            border-radius: 5px;
+            padding: 10px 20px;
+            border: none;
+            box-shadow: 1px 1px 5px black;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button {
+            background-color: #4caf50;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .runaway-btn {
+            background-color: rgb(182, 13, 13);
+        }
+
+        @media (max-width: 600px) {
+            .container div {
+                font-size: 5vw;
+            }
+
+            .button,
+            .runaway-btn {
+                font-size: 4vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>DO YOU LIKE ME?</div>
+        <button class="button" onclick="playVideo()">YES!</button>
+        <button id="runaway-btn" class="runaway-btn" onclick="changeText()">NO!</button>
+    </div>
+
+    <video
+        id="yesVideo"
+        style="display: none"
+        width="640"
+        height="360"
+        controls
+    >
+        <source src="yesVideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <script>
+        function playVideo() {
+            const video = document.getElementById("yesVideo");
+            video.style.display = "block";
+            video.play();
+            setTimeout(function () {
+                window.location.href = "forher2.html";
+            }, 3000); // 1000 milliseconds = 1 second
+        }
+
+        function changeText() {
+            const noButton = document.getElementById("runaway-btn");
+            noButton.innerText = "YES, you should date me!";
+            noButton.onclick = function () {
+                alert("Congratulations! Let's go on a date!");
+            };
+        }
+
+        const button = document.getElementById("runaway-btn");
+
+        const animateMove = (element, prop, pixels) =>
+            anime({
+                targets: element,
+                [prop]: `${pixels}px`,
+                easing: "easeOutCirc",
+            });
+
+        ["mouseover", "click"].forEach(function (el) {
+            button.addEventListener(el, function (event) {
+                const top = getRandomNumber(window.innerHeight - this.offsetHeight);
+                const left = getRandomNumber(window.innerWidth - this.offsetWidth);
+
+                animateMove(this, "left", left).play();
+                animateMove(this, "top", top).play();
+            });
+        });
+
+        const getRandomNumber = (num) => {
+            return Math.floor(Math.random() * (num + 1));
+        };
+    </script>
+</body>
+
+</html>
