@@ -6,20 +6,17 @@
     <title>Should We Date?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
-      rel="stylesheet"
-    />
     <style>
       body {
         margin: 0;
+        font: bold;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background: url("heart-pattern.jpg");
+        background: pink;
         overflow: hidden;
-        font-family: "Dancing Script", cursive;
+        font-family: Arial, Helvetica, sans-serif
       }
 
       .container {
@@ -29,7 +26,7 @@
 
       .container div {
         font-size: 80px;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         margin-bottom: 20px;
       }
 
@@ -70,12 +67,31 @@
   </head>
   <body>
     <div class="container">
-      <div id="question">Panipuri date?</div>
-      <button class="button" onclick="yes()">YES!</button>
-      <button class="runaway-btn" onclick="no()">NO!</button>
+      <div id="question">FROM NOW YOUR ARE MY POOKIE DOOKIE POTATO GF &#128536;</div>
+      <button class="button" onclick="playVideo()">YES!</button>
+      <button class="runaway-btn" onclick="playvideo()">YES</button>
     </div>
 
+    <video
+        id="beyondwords"
+        style="display: none"
+        width="640"
+        height="360"
+        controls
+    >
+    <source src="beyondwords.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+</video>
+
     <script>
+      function playVideo() {
+            const video = document.getElementById("beyondwords");
+            video.style.display = "block";
+            video.play();
+            setTimeout(function () {
+                window.location.href = "forher3.html";
+            }, 3000); // 1000 milliseconds = 1 second
+        }
       function yes() {
         document.getElementById("question").innerText = "Now we are dating!";
       }

@@ -17,7 +17,7 @@
             height: 100vh;
             background: url('heart-pattern.jpg');
             overflow: hidden;
-            font-family: "Dancing Script", cursive;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         .container {
@@ -98,10 +98,7 @@
 
         function changeText() {
             const noButton = document.getElementById("runaway-btn");
-            noButton.innerText = "YES, you should date me!";
-            noButton.onclick = function () {
-                alert("Congratulations! Let's go on a date!");
-            };
+            noButton.remove();
         }
 
         const button = document.getElementById("runaway-btn");
